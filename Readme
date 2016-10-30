@@ -34,7 +34,8 @@ Third tier (grade 21 to 25):
 If everything from the previous tiers is working fine, the software will also recognize inheritance (superclasses and subclasses),
 plus Interfaces and Abstract Classes.
 
-Hints: •	A subclass can inherit only from one superclass.
+Hints:
+•	A subclass can inherit only from one superclass.
 •	A Class can implement as many Interfaces it wants.
 •	An Abstract Class cannot create instance of an object.
 •	To implement an Interface the class have to define all the methods from that Interface.
