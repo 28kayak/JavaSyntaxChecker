@@ -1,0 +1,45 @@
+So, let's try to beat CloudCoder creating our version of a "Compiler".
+
+
+First tier (Grade from 0 to 15)
+The software will accept in input a text file containing a Java Class.
+It will recognize the presence of Instance variables, Contructors and Methods.
+Plus, the package name and import packages.
+If the file doesn't contain syntax errors,
+it will print in output something like "the class is OK". If it contains errors,
+it will print the line numbers where the problems are. Hints:
+•	Any statement ends with a semicolon.
+•	A class can belong to one package only and must be the first thing specified in a file (remember that is not mandatory).
+•	Only one import with the same name can be considered correct.
+    So, if the file is trying to import the same package twice, this is an error.
+•	A class can contain only one Constructor with the same signature,
+    but any with different signatures; also no Contructor at all.
+•	The same with Methods, only one with the same signature, any with different signatures, or no Methods at all.
+•	The Instance variables can be int, float, boolean, char and String.
+
+Second tier (grade 16 to 20):
+If everything from the previous tier works, the software will recognize multiple files in input.
+Each file will define a different class.
+Plus, the class now can contain an Object type different from String.
+This object can be an instance of the classes defined in the other files.
+
+Hints:
+•	To recognize an Object definition as legit, the software will check for the correct import statement.
+    If the import is present, and the class exists, there will be no error.
+    Example, if you have a Class file with the name "Heroquest" that belongs to the package "tablegame", it will check in the current file if an import to "tablegame.Heroquest" is present (or "tablegame.*" )
+    and if this file exists without errors.
+•	Remember that, if you want to declare an instance of a Class, a Constructor is necessary in that Class.
+
+Third tier (grade 21 to 25):
+If everything from the previous tiers is working fine, the software will also recognize inheritance (superclasses and subclasses),
+plus Interfaces and Abstract Classes.
+
+Hints: •	A subclass can inherit only from one superclass.
+•	A Class can implement as many Interfaces it wants.
+•	An Abstract Class cannot create instance of an object.
+•	To implement an Interface the class have to define all the methods from that Interface.
+
+
+Fourth Tier: (grade Extra Credits):
+•	Considering that all the previous tiers are working fine, you can obtain Extra Credit increasing the number of functionalities.
+More details will be given later on.
