@@ -1,7 +1,6 @@
 /**
  * Created by kaya on 10/24/16.
  */
-package
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,6 +22,7 @@ public class Main
         String[] statement;
         String[] imported;
         int numOfImport = 0;
+        int flag = 0;
 
         try
         {
@@ -55,7 +55,7 @@ public class Main
                 }
                 else if (statement[0].equals("package"))
                 {
-                    flag = 0;
+
                     if (flag <= 2)
                     {
                         System.out.println("ERROR: multiple package statements");
