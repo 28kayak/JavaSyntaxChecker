@@ -20,9 +20,10 @@ public class Main
         String inputFileName = "/Users/kaya/IdeaProjects/JavaSampleCompiler/src/test1.txt";
         File inputFile = new File(inputFileName);
         String[] statement;
-        String[] imported;
+        String[] imported = new String[20];
+        String[]
         int numOfImport = 0;
-        int flag = 0;
+        int flag = 0;//to avoid to accpet two package statement
 
         try
         {
@@ -39,8 +40,8 @@ public class Main
             System.out.println("line = " + line);
 
             while (!line.contains("class"))
-            {//lines contained package declaration or import declaration
-                //before class declaration
+            {//line contained package declaration or import declaration
+                //before class declaration is readed
                 statement = line.split(" ");
                 System.out.println("statement[0] = " + statement[0]);
                 if(statement[0].equals("import"))
@@ -48,8 +49,16 @@ public class Main
 
                     //check if package or import statement is correct
                     //importCheckr(statement[1], lineNum);
-                    imported[numOfImport] =  " ";
-                    numOfImport++;
+                    if (isImported(imported, numOfImport, statement[1] ))
+                    {
+                        //there is same imported class
+                        //give error
+                    }
+                    else
+                    {
+                        numOfImport++;
+                        imported[numOfImport] = statement[1];
+                    }
 
                     System.out.println("statement[1] = " + statement[1]);
                 }
@@ -151,7 +160,7 @@ public class Main
     }
     static boolean isImported(String [] imported, int numOfimported, String newImport)
     {
-        for (int i = 0; i <= imported.length; i++)
+        for (int i = 0; i <= numOfimported; i++)
         {
             if(imported[i].equalsIgnoreCase(newImport))
             {
