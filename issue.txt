@@ -1,7 +1,7 @@
 1: cannot recognize two same import statements exists
 2: inside class are not considered yet
 3: does java allow several packages to declare??
-4: split(".") seems not working ??
+4: split(".") seems not working ?? ==> split("//.") need regex
 5:find regular expression in the cases such as package info.!!!.ltaro@#; should be incorrect?(if that can happen)
 5.5: but allow import ~~~~~*; to import several classes by one line
 6:check if br.read(";") reads until ;
