@@ -21,7 +21,7 @@ public class Main
         File inputFile = new File(inputFileName);
         String[] statement;
         String[] imported = new String[20];
-        String[]
+
         int numOfImport = 0;
         int flag = 0;//to avoid to accpet two package statement
 
@@ -47,17 +47,23 @@ public class Main
                 if(statement[0].equals("import"))
                 {
 
+                    System.out.println("in if: import" + statement[1]);
                     //check if package or import statement is correct
                     //importCheckr(statement[1], lineNum);
-                    if (isImported(imported, numOfImport, statement[1] ))
+                    boolean already = isImported(imported, numOfImport, statement[1] );
+                    System.out.println("already = " + already);
+                    if (already)
                     {
                         //there is same imported class
                         //give error
+                        showCurrentImport(imported);
                     }
                     else
                     {
-                        numOfImport++;
+
                         imported[numOfImport] = statement[1];
+                        numOfImport++;
+                        showCurrentImport(imported);
                     }
 
                     System.out.println("statement[1] = " + statement[1]);
@@ -65,9 +71,9 @@ public class Main
                 else if (statement[0].equals("package"))
                 {
 
-                    if (flag <= 2)
+                    if (flag >= 2)
                     {
-                        System.out.println("ERROR: multiple package statements");
+                        System.out.println("ERROR: multiple package statements : " + lineNum);
                     }
                     else
                     {
@@ -92,14 +98,16 @@ public class Main
 
             }//while
             System.out.println("end while");
-            while(line!=null)
+           /* while(line!=null)
             {
                 //class declaration starts
 
                 //System.out.println("class");
                 line = br.readLine();
+                System.out.println(line);
                 lineNum++;
             }
+            */
             System.out.println("the last line");
             System.out.println(lineNum);
 
@@ -160,14 +168,33 @@ public class Main
     }
     static boolean isImported(String [] imported, int numOfimported, String newImport)
     {
-        for (int i = 0; i <= numOfimported; i++)
-        {
-            if(imported[i].equalsIgnoreCase(newImport))
-            {
-                return false;
-            }
+        boolean varidity = false;
+        System.out.println("in is imported");
+        System.out.println(imported[0]);
 
+        if(numOfimported == 0)
+        {
+            return false;
+        }
+        else
+        {
+            for (int i = 0; i <= numOfimported; i++)
+            {
+                if(imported[i].equalsIgnoreCase(newImport))
+                {
+                    System.out.println("in is imported: if");
+                    return  false;
+                }
+
+            }
         }
         return true;
+    }
+    static void showCurrentImport(String[] imported)
+    {
+        for (int i = 0; i<= imported.length;i++)
+        {
+            System.out.println("imported[" + i +"] = " + imported[i]);
+        }
     }
 }//class
